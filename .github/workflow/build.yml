@@ -1,0 +1,22 @@
+name: build
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: eibens/lit-action
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+
+      - name: Run build
+        uses: ./action.yml
+
+      - name: Upload coverage report
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: coverage.lcov

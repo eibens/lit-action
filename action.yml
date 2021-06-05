@@ -1,0 +1,81 @@
+name: build
+description: Fix code style, run tests, and bundle ESM.
+runs:
+  using: composite
+  steps:
+    - name: Check Git installed
+      shell: bash
+      run: |
+        output=$(which git)
+        if [ "$output" = "" ]; then
+          exit 1
+        fi
+    - name: Check Deno installed
+      shell: bash
+      run: |
+        output=$(which deno)
+        if [ "$output" = "" ]; then
+          exit 1
+        fi
+    - name: Check clean repository
+      shell: bash
+      run: |
+        output=$(git status --porcelain)
+        [ -n "$output" ] && 
+          exit 1
+        fi
+    - name: Deno lint
+      shell: bash
+      run: |
+        deno lint
+    - name: Deno format
+      shell: bash
+      run: |
+        deno fmt
+    - name: Commit style fixes
+      shell: bash
+      run: |
+        git add -A
+        git \
+        -c user.name="lit-bot" \
+        -c user.email="<>" \
+        commit -m ":robot: fix: deno format and lint" || true
+    - name: Generate test coverage
+      shell: bash
+      run: |
+        deno test -A --unstable --coverage=.coverage
+        deno coverage --unstable .coverage --lcov > mod.lcov
+        rm -rf .coverage
+    - name: Commit test coverage report
+      shell: bash
+      run: |
+        git add mod.lcov
+        git \
+        -c user.name="lit-bot" \
+        -c user.email="<>" \
+        commit -m ":robot: chore: generate coverage report" || true
+    - name: Deno bundle
+      shell: bash
+      run: |
+        deno bundle mod.ts mod.js
+        deno fmt mod.js
+        deno lint mod.js
+    - name: Commit bundled ESM
+      shell: bash
+      run: |
+        git add mod.js
+        git \
+        -c user.name="lit-bot" \
+        -c user.email="<>" \
+        commit -m ":robot: chore: generate bundled ES module " || true
+    - name: Check formatting
+      shell: bash
+      run: |
+        deno fmt --check
+    - name: Check clean repository
+      shell: bash
+      run: |
+        output=$(git status --porcelain)
+        [ -n "$output" ] && 
+          exit 1
+        fi

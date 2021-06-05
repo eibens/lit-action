@@ -1,0 +1,54 @@
+{
+  "name": "build",
+  "description": "Fix code style, run tests, and bundle ESM.",
+  "steps": [
+    {
+      "name": "Check Git installed",
+      "run": "output=$(which git)\nif [ \"$output\" = \"\" ]; then\n  exit 1\nfi"
+    },
+    {
+      "name": "Check Deno installed",
+      "run": "output=$(which deno)\nif [ \"$output\" = \"\" ]; then\n  exit 1\nfi"
+    },
+    {
+      "name": "Check clean repository",
+      "run": "output=$(git status --porcelain)\n[ -n \"$output\" ] && \n  exit 1\nfi"
+    },
+    {
+      "name": "Deno lint",
+      "run": "deno lint"
+    },
+    {
+      "name": "Deno format",
+      "run": "deno fmt"
+    },
+    {
+      "name": "Commit style fixes",
+      "run": "git add -A\ngit \\\n-c user.name=\"lit-bot\" \\\n-c user.email=\"<>\" \\\ncommit -m \":robot: fix: deno format and lint\" || true"
+    },
+    {
+      "name": "Generate test coverage",
+      "run": "deno test -A --unstable --coverage=.coverage\ndeno coverage --unstable .coverage --lcov > mod.lcov\nrm -rf .coverage"
+    },
+    {
+      "name": "Commit test coverage report",
+      "run": "git add mod.lcov\ngit \\\n-c user.name=\"lit-bot\" \\\n-c user.email=\"<>\" \\\ncommit -m \":robot: chore: generate coverage report\" || true"
+    },
+    {
+      "name": "Deno bundle",
+      "run": "deno bundle mod.ts mod.js\ndeno fmt mod.js\ndeno lint mod.js"
+    },
+    {
+      "name": "Commit bundled ESM",
+      "run": "git add mod.js\ngit \\\n-c user.name=\"lit-bot\" \\\n-c user.email=\"<>\" \\\ncommit -m \":robot: chore: generate bundled ES module \" || true"
+    },
+    {
+      "name": "Check formatting",
+      "run": "deno fmt --check"
+    },
+    {
+      "name": "Check clean repository",
+      "run": "output=$(git status --porcelain)\n[ -n \"$output\" ] && \n  exit 1\nfi"
+    }
+  ]
+}
