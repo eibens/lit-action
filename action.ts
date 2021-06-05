@@ -145,7 +145,7 @@ function commit(files: string, msg: string, opts: Required<Options>) {
 function checkEmpty(command: string) {
   return lines(
     `output=$(${command})`,
-    `[ -n "$output" ] && `,
+    `if [ -n "$output" ]; then `,
     `  exit 1`,
     `fi`,
   );

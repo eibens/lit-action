@@ -34,7 +34,7 @@ cat <<EOF
 Check clean repository
 EOF
 output=$(git status --porcelain)
-[ -n "$output" ] && 
+if [ -n "$output" ]; then 
   exit 1
 fi
 
@@ -116,6 +116,6 @@ cat <<EOF
 Check clean repository
 EOF
 output=$(git status --porcelain)
-[ -n "$output" ] && 
+if [ -n "$output" ]; then 
   exit 1
 fi

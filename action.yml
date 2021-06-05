@@ -21,7 +21,7 @@ runs:
       shell: bash
       run: |
         output=$(git status --porcelain)
-        [ -n "$output" ] && 
+        if [ -n "$output" ]; then 
           exit 1
         fi
     - name: Deno lint
@@ -76,6 +76,6 @@ runs:
       shell: bash
       run: |
         output=$(git status --porcelain)
-        [ -n "$output" ] && 
+        if [ -n "$output" ]; then 
           exit 1
         fi

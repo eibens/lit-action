@@ -12,7 +12,7 @@
     },
     {
       "name": "Check clean repository",
-      "run": "output=$(git status --porcelain)\n[ -n \"$output\" ] && \n  exit 1\nfi"
+      "run": "output=$(git status --porcelain)\nif [ -n \"$output\" ]; then \n  exit 1\nfi"
     },
     {
       "name": "Deno lint",
@@ -48,7 +48,7 @@
     },
     {
       "name": "Check clean repository",
-      "run": "output=$(git status --porcelain)\n[ -n \"$output\" ] && \n  exit 1\nfi"
+      "run": "output=$(git status --porcelain)\nif [ -n \"$output\" ]; then \n  exit 1\nfi"
     }
   ]
 }
