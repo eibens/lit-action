@@ -94,25 +94,30 @@ function parseJson(str: string) {
   }
 }
 
-function parseAction(action: any): Action {
+function parseAction(action: Record<string, unknown>): Action {
   // NOTE: These checks are already covered by the Action type, and thus pretty redundant. Unfortunately, we cannot easily use a TypeScript type for dynamic validation, as it would probably require the compiler.
-  //valid(action, [], "object");
-  //valid(action, ["name"], "string");
-  //valid(action, ["description"], "string");
-  //valid(action, ["steps"], "array");
-  action.steps.forEach((_: any, i: number) => {
+  valid(action, [], "object");
+  valid(action, ["name"], "string");
+  valid(action, ["description"], "string");
+  valid(action, ["steps"], "array");
+  (action as { steps: Step[] }).steps.forEach((_, i) => {
     const path = ["steps", i];
     valid(action, path, "object");
     valid(action, [...path, "name"], "string");
     valid(action, [...path, "run"], "string");
   });
-  return action;
+  return action as Action;
 }
 
 // Checks if `x` has a value of a certain `type` at the specified `path`.
-function valid(x: any, path: (string | number)[], type: string) {
-  const value = path.reduce((a, k) => a[k], x);
+function valid(
+  x: Record<string, unknown>,
+  path: (string | number)[],
+  type: string,
+) {
+  const value = path.reduce((a, k) => Reflect.get(a, k), x);
   let valid = true;
+  // deno-lint-ignore valid-typeof
   valid = typeof value === type;
   if (type === "object") valid = value !== null;
   if (type === "array") valid = Array.isArray(value);

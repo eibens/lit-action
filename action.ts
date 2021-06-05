@@ -3,7 +3,7 @@ import { parse } from "https://deno.land/std@0.95.0/flags/mod.ts";
 
 if (import.meta.main) {
   const args = parse(Deno.args);
-  const action = create(args as any);
+  const action = create(args as Options);
   console.log(JSON.stringify(action));
 }
 

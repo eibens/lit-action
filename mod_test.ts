@@ -54,6 +54,8 @@ runs:
 `.trimStart();
 
 export const bash = `
+#!/bin/sh
+
 # Deno build
 # ----------
 cat <<EOF

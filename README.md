@@ -43,8 +43,8 @@ The [lit-action] [CLI] can be installed with [deno]:
 deno install https://github.com/eibens/lit-action/cli.ts
 ```
 
-This is how a [lit-action JSON] file [action.json] can be converted to
-[Bash] and written to the file [action.sh]:
+This is how a [lit-action JSON] file [action.json] can be converted to [Bash]
+and written to the file [action.sh]:
 
 ```sh
 cat action.json | lit-action bash > action.sh

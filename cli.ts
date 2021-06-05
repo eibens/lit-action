@@ -20,7 +20,8 @@ async function main(options: {
   args: string[];
 }) {
   const allowedFormats = ["json", "bash", "github"];
-  const { _: [format] } = parse(options.args) as any;
+  const flags = parse(options.args);
+  const format = flags._[0] as string;
   if (!format) {
     throw new Error(
       `No lit-action format was specified. These are allowed formats: ${
@@ -58,13 +59,13 @@ function convert(json: string, format: Format) {
 
 async function writeText(writer: Deno.Writer, data: string) {
   const buffer = new TextEncoder().encode(data);
-  writer.write(buffer);
+  await writer.write(buffer);
 }
 
 async function readText(reader: Deno.Reader) {
   const decoder = new TextDecoder();
   const results: string[] = [];
-  let N = 1024;
+  const N = 1024;
   let n: number | null = null;
   const b = new Uint8Array(N);
   while (true) {
