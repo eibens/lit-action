@@ -38,7 +38,7 @@ async function main(options: {
   }
 
   const input = await readText(options.stdin);
-  const output = convert(input, format);
+  const output = convert(input, format as Format);
   writeText(options.stdout, output);
 }
 
