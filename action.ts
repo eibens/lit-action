@@ -87,7 +87,7 @@ function createSteps(opts: Required<Options>) {
     },
     commitStyleFixes: {
       name: "Commit style fixes",
-      run: commit("-A", ":robot: fix: deno format and lint", opts),
+      run: commit("-A", ":art: style: run deno fmt", opts),
     },
     denoCoverage: {
       name: "Generate test coverage",
@@ -101,7 +101,7 @@ function createSteps(opts: Required<Options>) {
       name: "Commit test coverage report",
       run: commit(
         opts.coverageFile,
-        ":robot: chore: generate coverage report",
+        ":package: chore: generate coverage report",
         opts,
       ),
     },

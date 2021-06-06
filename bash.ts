@@ -11,12 +11,11 @@ export function stringify(action: Action) {
 }
 
 function BashStep(opts: Step) {
+  const divider = "-".repeat(opts.name.length)
   // Use cat + heredoc over echo for output to handle newlines, quotes, etc.
   return [
     "",
-    `# ${opts.name}`,
-    `# ${"-".repeat(opts.name.length)}`,
-    `cat <<EOF\n${opts.name}\nEOF`,
+    `cat <<EOF\n\n${opts.name}\n${divider}\nEOF`,
     opts.run,
   ].join("\n");
 }
