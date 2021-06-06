@@ -39,7 +39,7 @@ runs:
         git \
         -c user.name="lit-bot" \
         -c user.email="<>" \
-        commit -m ":robot: fix: deno format and lint" || true
+        commit -m ":art: style: run deno fmt" || true
     - name: Generate test coverage
       shell: bash
       run: |
@@ -53,7 +53,7 @@ runs:
         git \
         -c user.name="lit-bot" \
         -c user.email="<>" \
-        commit -m ":robot: chore: generate coverage report" || true
+        commit -m ":package: chore: generate coverage report" || true
     - name: Deno bundle
       shell: bash
       run: |

@@ -24,7 +24,7 @@
     },
     {
       "name": "Commit style fixes",
-      "run": "git add -A\ngit \\\n-c user.name=\"lit-bot\" \\\n-c user.email=\"<>\" \\\ncommit -m \":robot: fix: deno format and lint\" || true"
+      "run": "git add -A\ngit \\\n-c user.name=\"lit-bot\" \\\n-c user.email=\"<>\" \\\ncommit -m \":art: style: run deno fmt\" || true"
     },
     {
       "name": "Generate test coverage",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Commit test coverage report",
-      "run": "git add mod.lcov\ngit \\\n-c user.name=\"lit-bot\" \\\n-c user.email=\"<>\" \\\ncommit -m \":robot: chore: generate coverage report\" || true"
+      "run": "git add mod.lcov\ngit \\\n-c user.name=\"lit-bot\" \\\n-c user.email=\"<>\" \\\ncommit -m \":package: chore: generate coverage report\" || true"
     },
     {
       "name": "Deno bundle",
