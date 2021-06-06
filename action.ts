@@ -83,7 +83,7 @@ function createSteps(opts: Required<Options>) {
     },
     denoLint: {
       name: "Deno lint",
-      run: "deno lint",
+      run: `deno lint --ignore=${opts.bundleFile}`,
     },
     commitStyleFixes: {
       name: "Commit style fixes",
