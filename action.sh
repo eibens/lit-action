@@ -90,6 +90,7 @@ Deno bundle
 EOF
 deno bundle mod.ts mod.js
 deno fmt mod.js
+deno fmt mod.js
 
 cat <<EOF
 
@@ -100,7 +101,7 @@ git add mod.js
 git \
 -c user.name="lit-bot" \
 -c user.email="<>" \
-commit -m ":robot: chore: generate bundled ES module " || true
+commit -m ":package: chore: generate bundled ES module " || true
 
 cat <<EOF
 

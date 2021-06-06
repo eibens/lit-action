@@ -36,11 +36,11 @@
     },
     {
       "name": "Deno bundle",
-      "run": "deno bundle mod.ts mod.js\ndeno fmt mod.js"
+      "run": "deno bundle mod.ts mod.js\ndeno fmt mod.js\ndeno fmt mod.js"
     },
     {
       "name": "Commit bundled ESM",
-      "run": "git add mod.js\ngit \\\n-c user.name=\"lit-bot\" \\\n-c user.email=\"<>\" \\\ncommit -m \":robot: chore: generate bundled ES module \" || true"
+      "run": "git add mod.js\ngit \\\n-c user.name=\"lit-bot\" \\\n-c user.email=\"<>\" \\\ncommit -m \":package: chore: generate bundled ES module \" || true"
     },
     {
       "name": "Check formatting",

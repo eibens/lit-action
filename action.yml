@@ -59,6 +59,7 @@ runs:
       run: |
         deno bundle mod.ts mod.js
         deno fmt mod.js
+        deno fmt mod.js
     - name: Commit bundled ESM
       shell: bash
       run: |
@@ -66,7 +67,7 @@ runs:
         git \
         -c user.name="lit-bot" \
         -c user.email="<>" \
-        commit -m ":robot: chore: generate bundled ES module " || true
+        commit -m ":package: chore: generate bundled ES module " || true
     - name: Check formatting
       shell: bash
       run: |
