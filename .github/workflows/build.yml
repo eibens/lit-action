@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: eibens/lit-action@master
+        uses: actions/checkout@v2
 
       - name: Setup Deno
         uses: denoland/setup-deno@v1
