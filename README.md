@@ -1,7 +1,12 @@
 # [lit-action]
 
-[![this project uses lit-action][shield lit-action]][lit-action on GitHub]
+![License][shield license]
+![GitHub tag][shield tag]
+
+![GitHub Workflow Status][shield build]
 ![Codecov][shield codecov]
+
+[![lit-action][shield lit-action]][lit-action on GitHub]
 
 # [Abstract]
 
@@ -200,6 +205,9 @@ With link to [lit-action on GitHub]:
 
 [shield lit-action]: https://img.shields.io/badge/lit-action-%23ff0266
 [shield codecov]: https://img.shields.io/codecov/c/github/eibens/lit-action
+[shield license]: https://img.shields.io/github/license/eibens/lit-action
+[shield tag]: https://img.shields.io/github/v/tag/eibens/lit-action
+[shield build]: https://img.shields.io/github/workflow/status/eibens/lit-action/build
 [lit-action JSON]: json.ts
 [lit-action Bash]: bash.ts
 [lit-action GitHub]: github.ts
