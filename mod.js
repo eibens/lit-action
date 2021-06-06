@@ -2985,9 +2985,7 @@ var Collection1 = function (_Node) {
         var _ref4 = _toArray(_ref3), key = _ref4[0], rest = _ref4.slice(1);
         var node = this.get(key, true);
         if (rest.length === 0) {
-          return !keepScalar && node instanceof Scalar
-            ? node.value
-            : node;
+          return !keepScalar && node instanceof Scalar ? node.value : node;
         } else {
           return node instanceof Collection2
             ? node.getIn(rest, keepScalar)
@@ -4543,11 +4541,10 @@ function resolveNodeProps(errors, node) {
             errors.push(new YAMLSemanticError(node, msg));
           }
           var header = node.header, valueRange = node.valueRange;
-          var cc =
-            valueRange &&
+          var cc = valueRange &&
               (start > valueRange.start || header && start > header.start)
-              ? comments.after
-              : comments.before;
+            ? comments.after
+            : comments.before;
           cc.push(node.context.src.slice(start + 1, end));
           break;
         }
@@ -4642,9 +4639,7 @@ function resolveNode(doc, node) {
     }
     var ca = comments.after.join("\n");
     if (ca) {
-      res.comment = res.comment
-        ? "".concat(res.comment, "\n").concat(ca)
-        : ca;
+      res.comment = res.comment ? "".concat(res.comment, "\n").concat(ca) : ca;
     }
   }
   return node.resolved = res;
@@ -7970,9 +7965,7 @@ function createNode4(value, tagName, ctx) {
   if (!tagObj) {
     if (typeof value.toJSON === "function") value = value.toJSON();
     if (!value || _typeof(value) !== "object") {
-      return wrapScalars
-        ? new Scalar(value)
-        : value;
+      return wrapScalars ? new Scalar(value) : value;
     }
     tagObj = value instanceof Map ? map : value[Symbol.iterator] ? seq : map;
   }
