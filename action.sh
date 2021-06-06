@@ -90,7 +90,6 @@ Deno bundle
 EOF
 deno bundle mod.ts mod.js
 deno fmt mod.js
-deno lint mod.js
 
 # Commit bundled ESM
 # ------------------

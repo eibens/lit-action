@@ -59,7 +59,6 @@ runs:
       run: |
         deno bundle mod.ts mod.js
         deno fmt mod.js
-        deno lint mod.js
     - name: Commit bundled ESM
       shell: bash
       run: |

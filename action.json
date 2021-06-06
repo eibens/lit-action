@@ -36,7 +36,7 @@
     },
     {
       "name": "Deno bundle",
-      "run": "deno bundle mod.ts mod.js\ndeno fmt mod.js\ndeno lint mod.js"
+      "run": "deno bundle mod.ts mod.js\ndeno fmt mod.js"
     },
     {
       "name": "Commit bundled ESM",
