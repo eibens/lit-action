@@ -73,21 +73,26 @@ the public [lit-action] API of the project. It describes an automated action as
 a sequence of steps using the [lit-action JSON] format. Currently, [lit-action]
 provides no convention for using multiple actions in a project. [lit-action] is
 itself built with [lit-action] and serves as an example. The build process of
-this repository involves multiple steps:
+this repository involves multiple steps.
 
-- Check pre-conditions.
-  1. Check that [git] is installed.
-  2. Check that [deno] is installed.
-  3. Check that the repository is clean.
-  4. Lint code with `deno lint`.
-- Update repository content.
-  1. Format code with `deno fmt`.
-  2. Run tests and generate coverage report `mod.lcov`.
-  3. Generate ESM bundle `mod.js`.
-  4. Push changes to remote.
-- Check post-conditions.
-  1. Check code style.
-  2. Check that the repository is clean.
+Check pre-conditions:
+
+1. Check that [git] is installed.
+2. Check that [deno] is installed.
+3. Check that the repository is clean.
+4. Lint code with `deno lint`.
+
+Update repository content:
+
+1. Format code with `deno fmt`.
+2. Run tests and generate coverage report `mod.lcov`.
+3. Generate ESM bundle `mod.js`.
+4. Push changes to remote.
+
+Check post-conditions:
+
+1. Check code style.
+2. Check that the repository is clean.
 
 Writing an [action.json] file by hand can be tedious and repetitive. Instead,
 [lit-action] uses a TypeScript module [action.ts] that generates and prints
