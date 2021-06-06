@@ -110,13 +110,14 @@ function createSteps(opts: Required<Options>) {
       run: lines(
         `deno bundle ${opts.moduleFile} ${opts.bundleFile}`,
         `deno fmt ${opts.bundleFile}`,
+        `deno fmt ${opts.bundleFile}`,
       ),
     },
     commitBundle: {
       name: "Commit bundled ESM",
       run: commit(
         opts.bundleFile,
-        ":robot: chore: generate bundled ES module ",
+        ":package: chore: generate bundled ES module ",
         opts,
       ),
     },
