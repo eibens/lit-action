@@ -110,7 +110,6 @@ function createSteps(opts: Required<Options>) {
       run: lines(
         `deno bundle ${opts.moduleFile} ${opts.bundleFile}`,
         `deno fmt ${opts.bundleFile}`,
-        `deno lint ${opts.bundleFile}`,
       ),
     },
     commitBundle: {
