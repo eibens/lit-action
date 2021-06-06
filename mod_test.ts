@@ -56,25 +56,25 @@ runs:
 export const bash = `
 #!/bin/sh
 
-# Deno build
-# ----------
 cat <<EOF
+
 Deno build
+----------
 EOF
 # exit when any command fails
 set -e
 
-# Check code style
-# ----------------
 cat <<EOF
+
 Check code style
+----------------
 EOF
 deno fmt --check
 
-# Run tests
-# ---------
 cat <<EOF
+
 Run tests
+---------
 EOF
 deno test
 `.trimStart();
