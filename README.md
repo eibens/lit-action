@@ -1,6 +1,7 @@
 # [lit-action]
 
-[![this project uses lit-action][lit-action shield]][lit-action on GitHub]
+[![this project uses lit-action][shield lit-action]][lit-action on GitHub]
+![Codecov][shield codecov]
 
 # [Abstract]
 
@@ -197,7 +198,8 @@ With link to [lit-action on GitHub]:
 
 <!-- internal links -->
 
-[lit-action shield]: https://img.shields.io/badge/lit-action-%23ff0266
+[shield lit-action]: https://img.shields.io/badge/lit-action-%23ff0266
+[shield codecov]: https://img.shields.io/codecov/c/github/eibens/lit-action
 [lit-action JSON]: json.ts
 [lit-action Bash]: bash.ts
 [lit-action GitHub]: github.ts
