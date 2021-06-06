@@ -11,7 +11,7 @@ export function stringify(action: Action) {
 }
 
 function BashStep(opts: Step) {
-  const divider = "-".repeat(opts.name.length)
+  const divider = "-".repeat(opts.name.length);
   // Use cat + heredoc over echo for output to handle newlines, quotes, etc.
   return [
     "",
