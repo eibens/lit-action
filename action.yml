@@ -27,7 +27,7 @@ runs:
     - name: Deno lint
       shell: bash
       run: |
-        deno lint
+        deno lint --ignore=mod.js
     - name: Deno format
       shell: bash
       run: |

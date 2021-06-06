@@ -43,7 +43,7 @@ cat <<EOF
 Deno lint
 ---------
 EOF
-deno lint
+deno lint --ignore=mod.js
 
 cat <<EOF
 

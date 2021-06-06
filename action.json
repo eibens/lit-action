@@ -16,7 +16,7 @@
     },
     {
       "name": "Deno lint",
-      "run": "deno lint"
+      "run": "deno lint --ignore=mod.js"
     },
     {
       "name": "Deno format",
